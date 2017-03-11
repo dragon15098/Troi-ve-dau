@@ -4,11 +4,14 @@ import random
 from gem import Gem
 
 class Map:
+    def check_match(self, dic_hole, ):
+        if
     def __init__(self, width, height):
         self.width = width
         self.height = height
         self.player = Player(random.randint(0,self.width - 1), random.randint(0,self.height - 1))
         self.gem = Gem(random.randint(0,self.width - 1), random.randint(0,self.height - 1))
+        self.dic_hole = []
 
     def print_map(self):
         pygame.init()
@@ -24,10 +27,6 @@ class Map:
         SQUARE_SIZE = 32
 
         while not done:
-            # get event
-            dx, dy = 0, 0
-            # process game events
-            # repaint
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     done = True
@@ -37,7 +36,7 @@ class Map:
                 for x in range(self.width):
                     screen.blit(bg_image, (x * SQUARE_SIZE, y * SQUARE_SIZE))
             screen.blit(p_image, (self.player.pox* SQUARE_SIZE, self.player.poy * SQUARE_SIZE))
-        pygame.display.flip()
+            pygame.display.flip()
 
 
 
