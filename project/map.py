@@ -4,18 +4,21 @@ import random
 from gem import Gem
 
 class Map:
-    def check_match(self, dic_hole, ):
-        if
     def __init__(self, width, height):
         self.width = width
         self.height = height
-        self.dic_p = Player(random.randint(0,self.width - 1), random.randint(0,self.height - 1))
-        self.gem = Gem(random.randint(0,self.width - 1), random.randint(0,self.height - 1))
-        self.dic_hole = []
+        self.player = Player(random.randint(0,self.width - 1), random.randint(0,self.height - 1))
+        self.done_temp = False
+        while not self.done_temp:
+            temp_gem_x = random.randint(0, self.width)
+            temp_gem_y = random.randint(0, self.height)
+            if self.player.dic_p["x"] == temp_gem_x and self.player.dic_p["y"] == temp_gem_y:
+                self.gem = Gem(temp_gem_x, temp_gem_y)
+                self.done_temp = True
+
 
     def print_map(self):
         pygame.init()
-        print(self.gem.gem_x, "    " , self.gem.gem_y)
         screen = pygame.display.set_mode([800, 600])
         done = False
         bg_image = pygame.image.load("bg_image.png")
