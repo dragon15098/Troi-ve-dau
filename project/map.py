@@ -9,7 +9,7 @@ class Map:
     def __init__(self, width, height):
         self.width = width
         self.height = height
-        self.player = Player(random.randint(0,self.width - 1), random.randint(0,self.height - 1))
+        self.dic_p = Player(random.randint(0,self.width - 1), random.randint(0,self.height - 1))
         self.gem = Gem(random.randint(0,self.width - 1), random.randint(0,self.height - 1))
         self.dic_hole = []
 
