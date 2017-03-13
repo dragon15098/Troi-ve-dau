@@ -1,6 +1,7 @@
 import pygame
 from player import Player
 import random
+from hole import Hole
 from gem import Gem
 
 class Map:
@@ -15,6 +16,7 @@ class Map:
             if self.player.dic_p["x"] == temp_gem_x and self.player.dic_p["y"] == temp_gem_y:
                 self.gem = Gem(temp_gem_x, temp_gem_y)
                 self.done_temp = True
+        self.hole = Hole()
 
 
     def print_map(self):

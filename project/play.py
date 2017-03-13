@@ -1,4 +1,3 @@
 from map import Map
+while True:
 
-map = Map(10, 10)
-map.print_map()

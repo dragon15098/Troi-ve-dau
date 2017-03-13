@@ -1,5 +1,4 @@
 import random
-import map
 import play
 class Hole:
     def __init__(self):
@@ -17,7 +16,7 @@ class Hole:
         for i in range(index_map):
             temp_x = random.randint(0, weidth)
             temp_y = random.randint(0, height)
-            while check_match(play.map.player.dic_p, temp_x, temp_y, self.list_hole):
+            while self.check_match(play.map.player.dic_p, temp_x, temp_y, self.list_hole):
                 temp_x = random.randint(0, weidth)
                 temp_y = random.randint(0, height)
             self.list_hole.append({"x": temp_x, "y": temp_y})
