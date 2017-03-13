@@ -1,22 +1,50 @@
 import pygame
 from player import Player
 import random
-from hole import Hole
 from gem import Gem
+from hole import Hole
 
 class Map:
-    def __init__(self, width, height):
-        self.width = width
-        self.height = height
+    def __init__(self):
+        self.width = 5
+        self.height = 5
         self.player = Player(random.randint(0,self.width - 1), random.randint(0,self.height - 1))
         self.done_temp = False
         while not self.done_temp:
-            temp_gem_x = random.randint(0, self.width)
-            temp_gem_y = random.randint(0, self.height)
-            if self.player.dic_p["x"] == temp_gem_x and self.player.dic_p["y"] == temp_gem_y:
+            temp_gem_x = random.randint(0, self.width - 1)
+            temp_gem_y = random.randint(0, self.height - 1)
+            if not (self.player.dic_player["x"] == temp_gem_x and self.player.dic_player["y"] == temp_gem_y):
                 self.gem = Gem(temp_gem_x, temp_gem_y)
                 self.done_temp = True
+        self.index_map = 1
         self.hole = Hole()
+        self.add_hole(self.width, self.height, self.index_map)
+        print("hole")
+        print(self.hole.list_hole)
+        print("player")
+        print(self.player.dic_player)
+        print("gem")
+        print(self.gem.dic_gem)
+
+    def check_match(self, dic_p, temp_hole_x, temp_hole_y, list_hole):
+        for i in range(len(list_hole)):
+            if (abs(temp_hole_x - list_hole[i]["x"]) > 2) and (abs(temp_hole_x - list_hole[i]["y"]) > 2):
+                print("1")
+                return True
+        if (temp_hole_x == dic_p["x"]) and (temp_hole_y == dic_p["y"]):
+            print("2")
+            return True
+        return False
+
+    def add_hole(self, weidth, height, index_map):
+        for i in range(index_map):
+            temp_x = random.randint(0, weidth - 1)
+            temp_y = random.randint(0, height - 1)
+            while self.check_match(self.player.dic_player, temp_x, temp_y, self.hole.list_hole):
+                temp_x = random.randint(0, weidth - 1)
+                temp_y = random.randint(0, height - 1)
+            self.hole.list_hole.append({"x": temp_x, "y": temp_y})
+
 
 
     def print_map(self):

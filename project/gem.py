@@ -1,3 +1,3 @@
 class Gem:
     def __init__(self, gx, gy):
-        self.dic_g = {"x" : gx, "y" : gy}
+        self.dic_gem = {"x" : gx, "y" : gy}
