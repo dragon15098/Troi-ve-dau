@@ -1,4 +1,3 @@
-
 class Hole:
     def __init__(self):
         self.list_hole = []
