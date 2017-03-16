@@ -1,5 +1,7 @@
-from map import Map
 import pygame
+
+from models.map import Map
+
 map = Map()
 
 pygame.init()

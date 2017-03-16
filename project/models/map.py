@@ -1,8 +1,10 @@
 import random
-from player import Player
-from gem import Gem
-from hole import Hole
-from bat import Bat
+
+from models.gem import Gem
+from models.player import Player
+from models.bat import Bat
+from models.hole import Hole
+
 
 class Map:
     def __init__(self):
