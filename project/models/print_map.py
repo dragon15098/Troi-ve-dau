@@ -5,14 +5,14 @@ from models.map import Map
 map = Map()
 
 pygame.init()
-screen = pygame.display.set_mode([800, 600])
+screen = pygame.display.set_mode([800, 400])
 done = False
 map = Map()
-bg_image = pygame.image.load("images/thuy.jpg")
-p_image = pygame.image.load("images/mario.png")
-gem_image = pygame.image.load("images/box.png")
-hole_image= pygame.image.load("images/1.jpg")
-bat_image = pygame.image.load("images/doi.png")
+bg_image = pygame.image.load("../images/hoa.png")
+p_image = pygame.image.load("../images/mario.png")
+gem_image = pygame.image.load("../images/box.png")
+hole_image = pygame.image.load("../images/1.jpg")
+bat_image = pygame.image.load("../images/doi.png")
 
         # draw bg
 COLOR_WHITE = (255, 255, 255)
@@ -43,12 +43,10 @@ while not done:
 
 
     screen.fill(COLOR_WHITE)
-            # for y in range(self.height):
-            #     for x in range(self.width):
-            #         screen.blit(bg_image, (x * SQUARE_SIZE, y * SQUARE_SIZE))
+
     screen.blit(bg_image, (0 ,0))
     screen.blit(p_image, (map.player.dic_player["x"] * SQUARE_SIZE, map.player.dic_player["y"] * SQUARE_SIZE))
     screen.blit(gem_image, (map.gem.dic_gem["x"] * SQUARE_SIZE, map.gem.dic_gem["y"] * SQUARE_SIZE))
     screen.blit(hole_image, (map.hole.list_hole[0]["x"] * SQUARE_SIZE, map.hole.list_hole[0]["y"] * SQUARE_SIZE))
-    screen.blit(bat_image, (map.bat.dic_bat[0]["x"] * SQUARE_SIZE, map.bat.dic_bat[0]["y"] * SQUARE_SIZE))
+    screen.blit(bat_image, (map.bat.dic_bat["x"] * SQUARE_SIZE, map.bat.dic_bat["y"] * SQUARE_SIZE))
     pygame.display.flip()
