@@ -2,10 +2,10 @@ import pygame
 
 from models.map import Map
 pygame.init()
+screen = pygame.display.set_mode([700, 400])
+map = Map()
+def print_map(screen,map):
 
-def print_map():
-    map = Map()
-    screen = pygame.display.set_mode([240, 240])
     done = False
 
     bg_image = pygame.image.load("../images/hoa.png")
@@ -53,4 +53,15 @@ def print_map():
         screen.blit(bat_image, (map.bat.dic_bat["x"] * SQUARE_SIZE, map.bat.dic_bat["y"] * SQUARE_SIZE))
         pygame.display.flip()
 
-print_map()
+def print_text_box(screen):
+    done = False
+    while not done:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                done = True
+        text_box = pygame.image.load("../images/text_box.png")
+        screen.blit(text_box, (400, 0))
+        pygame.display.flip()
+
+print_map(screen, map)
+print_text_box(screen)
