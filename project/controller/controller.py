@@ -6,13 +6,13 @@ map = Map()
 screen = pygame.display.set_mode([700, 400])
 done = False
 while not done:
+    dx = 0
+    dy = 0
     for event in pygame.event.get():
         print("1")
         if event.type == pygame.QUIT:
             done = True
-        dx = 0
-        dy = 0
-        if event.type == pygame.KEYDOWN:
+        elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
                 dx = -1
             elif event.key == pygame.K_RIGHT:
@@ -21,11 +21,12 @@ while not done:
                 dy = -1
             elif event.key == pygame.K_DOWN:
                 dy = 1
-        if (dx != 0 or dy != 0):
-            if map.check_in_map():
-                map.move_player(dx, dy)
-            else:
-                None
+    if (dx != 0 or dy != 0):
+        [next_px, next_py] = map.player.next_position(dx, dy)
+        if map.check_in_map(next_px, next_py)==True:
+            map.player.move(dx, dy)
+        else:
+            None
     print_map(map, screen )
     print_text_box(screen)
     pygame.display.flip()
