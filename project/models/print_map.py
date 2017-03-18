@@ -45,3 +45,4 @@ def print_text_box(screen):
         text_box = pygame.image.load("../images/text_box.png")
         screen.blit(text_box, (400, 0))
         pygame.display.flip()
+
