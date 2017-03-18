@@ -1,6 +1,8 @@
-from models.map import Map
-from models.print_map import print_map, print_text_box
 import pygame
+
+from project.models.map import Map
+from project.views.print_map import print_map, print_text_box, print_text
+
 pygame.init()
 map = Map()
 screen = pygame.display.set_mode([700, 400])
@@ -29,6 +31,7 @@ while not done:
             None
     print_map(map, screen )
     print_text_box(screen)
+    print_text(screen)
     pygame.display.flip()
 
 

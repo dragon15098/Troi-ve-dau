@@ -1,9 +1,9 @@
 import random
 
-from models.gem import Gem
-from models.player import Player
-from models.bat import Bat
-from models.hole import Hole
+from project.models.gem import Gem
+from project.models.player import Player
+from project.models.bat import Bat
+from project.models.hole import Hole
 
 
 class Map:
@@ -39,7 +39,7 @@ class Map:
 
     def match(self, dic_p, temp_bat_x, temp_bat_y, list_hole, dic_gem):#tạo ra 1 vị trí mới cho bat hoặc người chơi
         for i in range(len(list_hole)):
-            if (abs(temp_bat_x == list_hole[i]["x"])) and (abs(temp_bat_x == list_hole[i]["y"])):
+            if (temp_bat_x == list_hole[i]["x"]) and (temp_bat_x == list_hole[i]["y"]):
                 return False
         if (temp_bat_x == dic_p["x"]) and (temp_bat_y == dic_p["y"]):
             return False

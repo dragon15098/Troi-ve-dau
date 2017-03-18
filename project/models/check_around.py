@@ -1,4 +1,4 @@
-from models.map import Map
+from project.models.map import Map
 map = Map()
 def check_around(map):
     near_bat = False
@@ -6,7 +6,7 @@ def check_around(map):
     near_gem = False
     for dy in range(1, -2, -1):
         for dx in range(1, -2, -1):
-            temp_dic_p = {"x" : map.player.dic_player["x"] - dx, "y" : map.player.dic_player["y"] - dy}
+            temp_dic_p = {"x": map.player.dic_player["x"] - dx, "y": map.player.dic_player["y"] - dy}
             if(dx == 0) and (dy == 0):
                 near_bat = False
                 near_hole = False

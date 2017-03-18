@@ -1,2 +1,2 @@
-from models.map import Map
+from project.models.map import Map
 map = Map()

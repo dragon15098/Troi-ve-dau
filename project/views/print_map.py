@@ -1,5 +1,5 @@
 import pygame
-from models.map import Map
+from project.models.map import Map
 map = Map()
 def print_map(map, screen):
     bg_image = pygame.image.load("../images/hoa.png")
@@ -22,4 +22,9 @@ def print_text_box(screen):
     text_box = pygame.image.load("../images/text_box.png")
     screen.blit(text_box, (400, 0))
     pygame.display.flip()
+
+def print_text(screen):
+    font_bat = pygame.font.SysFont("monospace", 15)
+    label = font_bat.render("Some text!", 1, (0, 0, 0))
+    screen.blit(label, (500, 0))
 
