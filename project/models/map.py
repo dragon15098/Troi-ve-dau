@@ -64,12 +64,27 @@ class Map:
             temp_y = random.randint(0, self.height - 1)
         return {"x": temp_x, "y": temp_y}
 
-
-
     def check_in_map(self, x, y):
         if (0 <= x < self.width) and (0 <= y < self.height):
             return True
         return False
 
+    def check_around(self):
+        near_bat = 0
+        near_hole = 0
+        near_gem = 0
+        for dy in range(-1, 2, 1):
+            for dx in range(-1, 2, 1):
+                temp_dic_p = {"x": self.player.dic_player["x"] - dx, "y": self.player.dic_player["y"] - dy}
+                if temp_dic_p == self.bat.dic_bat:
+                    near_bat = 1
+                for i in range(len(self.hole.list_hole)):
+                    if temp_dic_p == self.hole.list_hole[i]:
+                        near_hole = 1
+                        break
+                if temp_dic_p == self.gem.dic_gem:
+                    near_gem = 1
+        dic_match = {"bat": near_bat, "hole": near_hole, "gem": near_gem}
+        return dic_match
 
 

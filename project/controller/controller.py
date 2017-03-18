@@ -22,15 +22,14 @@ while not done:
                 dy = -1
             elif event.key == pygame.K_DOWN:
                 dy = 1
-    if (dx != 0 or dy != 0):
+    if dx != 0 or dy != 0:
         [next_px, next_py] = map.player.next_position(dx, dy)
-        if map.check_in_map(next_px, next_py)==True:
+        if map.check_in_map(next_px, next_py):
             map.player.move(dx, dy)
-        else:
-            None
-    print_map(map, screen )
+    print_map(map, screen)
     print_text_box(screen)
-    print_text(screen)
+    print_text(map, screen)
+
     pygame.display.flip()
 
 

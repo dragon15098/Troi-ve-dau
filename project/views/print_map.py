@@ -23,21 +23,21 @@ def print_text_box(screen):
     screen.blit(text_box, (400, 0))
     pygame.display.flip()
 
-def print_text(screen):
-    dic_match = check_around(map)
+def print_text(map, screen):
+    dic_match = map.check_around()
     if (dic_match["gem"] == 1):
         font_bat = pygame.font.SysFont("monospace", 15)
         label = font_bat.render("Gem!", 1, (0, 0, 0))
         screen.blit(label, (500, 0))
 
-    if (dic_match["gem"] == 1):
+    if (dic_match["bat"] == 1):
         font_bat = pygame.font.SysFont("monospace", 15)
         label = font_bat.render("Bat!", 1, (0, 0, 0))
-        screen.blit(label, (500, 0))
+        screen.blit(label, (550, 0))
 
     if (dic_match["hole"] == 1):
         font_bat = pygame.font.SysFont("monospace", 15)
         label = font_bat.render("Hole!", 1, (0, 0, 0))
-        screen.blit(label, (500, 0))
+        screen.blit(label, (600 , 0))
 
 

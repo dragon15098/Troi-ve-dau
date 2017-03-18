@@ -7,7 +7,7 @@ class Player:
         self.dic_player["y"] += dy
 
     def next_position(self, dx, dy):
-        return [self.dic_player["x"]+dx,self.dic_player["y"]+dy]
+        return [self.dic_player["x"]+dx, self.dic_player["y"]+dy]
 
 
 
