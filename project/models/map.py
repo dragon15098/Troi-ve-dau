@@ -64,6 +64,15 @@ class Map:
             temp_y = random.randint(0, self.height - 1)
         return {"x": temp_x, "y": temp_y}
 
+    def check_inside(self):
+        print(self.player.dic_player["x"],self.player.dic_player["y"])
+        if 0 <= self.player.dic_player["x"] < self.width and 0 <= self.player.dic_player["y"] < self.height:
+            return True
+        return False
+
     def move_player(self, dx, dy):
-        self.player.dic_player["x"] += dx
-        self.player.dic_player["y"] += dy
+        if not self.check_inside():
+            None
+        else:
+            self.player.dic_player["x"] += dx
+            self.player.dic_player["y"] += dy
