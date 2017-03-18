@@ -1,5 +1,6 @@
 import pygame
 from project.models.map import Map
+from project.models.check_around import check_around
 map = Map()
 def print_map(map, screen):
     bg_image = pygame.image.load("../images/hoa.png")
@@ -8,7 +9,6 @@ def print_map(map, screen):
     hole_image = pygame.image.load("../images/1.jpg")
     bat_image = pygame.image.load("../images/doi.png")
     COLOR_WHITE = (255, 255, 255)
-            # draw image
     SQUARE_SIZE = 40
     screen.fill(COLOR_WHITE)
     screen.blit(bg_image, (0, 0))
@@ -24,7 +24,20 @@ def print_text_box(screen):
     pygame.display.flip()
 
 def print_text(screen):
-    font_bat = pygame.font.SysFont("monospace", 15)
-    label = font_bat.render("Some text!", 1, (0, 0, 0))
-    screen.blit(label, (500, 0))
+    dic_match = check_around(map)
+    if (dic_match["gem"] == 1):
+        font_bat = pygame.font.SysFont("monospace", 15)
+        label = font_bat.render("Gem!", 1, (0, 0, 0))
+        screen.blit(label, (500, 0))
+
+    if (dic_match["gem"] == 1):
+        font_bat = pygame.font.SysFont("monospace", 15)
+        label = font_bat.render("Bat!", 1, (0, 0, 0))
+        screen.blit(label, (500, 0))
+
+    if (dic_match["hole"] == 1):
+        font_bat = pygame.font.SysFont("monospace", 15)
+        label = font_bat.render("Hole!", 1, (0, 0, 0))
+        screen.blit(label, (500, 0))
+
 

@@ -11,7 +11,6 @@ while not done:
     dx = 0
     dy = 0
     for event in pygame.event.get():
-        print("1")
         if event.type == pygame.QUIT:
             done = True
         elif event.type == pygame.KEYDOWN:
