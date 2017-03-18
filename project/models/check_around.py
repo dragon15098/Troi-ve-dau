@@ -19,6 +19,3 @@ def check_around(map):
                     break
             if temp_dic_p == map.gem.dic_gem:
                 near_gem == True
-
-
-
