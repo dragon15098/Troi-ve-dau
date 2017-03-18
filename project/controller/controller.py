@@ -26,6 +26,9 @@ while not done:
         [next_px, next_py] = map.player.next_position(dx, dy)
         if map.check_in_map(next_px, next_py):
             map.player.move(dx, dy)
+            if map.player.dic_player == map.bat.dic_bat:
+                map.player.dic_player = map.add_bat()
+
     print_map(map, screen)
     print_text_box(screen)
     print_text(map, screen)
