@@ -7,7 +7,6 @@ map = Map()
 pygame.init()
 screen = pygame.display.set_mode([800, 600])
 done = False
-map = Map()
 bg_image = pygame.image.load("images/thuy.jpg")
 p_image = pygame.image.load("images/mario.png")
 gem_image = pygame.image.load("images/box.png")
