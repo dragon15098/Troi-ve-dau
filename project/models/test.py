@@ -1,4 +1,4 @@
-from models.map import Map
+from modelsmap import Map
 for i in range(100):
     map = Map()
     assert map.gem.dic_gem["x"] != map.player.dic_player["x"] or map.gem.dic_gem["y"] != map.player.dic_player["y"]
