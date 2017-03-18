@@ -1,12 +1,14 @@
 import pygame
 
 from models.map import Map
+
 pygame.init()
 screen = pygame.display.set_mode([700, 400])
 map = Map()
 def print_map(screen,map):
 
     done = False
+
 
     bg_image = pygame.image.load("../images/hoa.png")
     p_image = pygame.image.load("../images/mario.png")
@@ -39,8 +41,10 @@ def print_map(screen,map):
                 else:
                         dx, dy = 0, 0
 
+
             if dx != 0 or dy != 0:
                 map.move_player(dx, dy)
+
 
 
         screen.fill(COLOR_WHITE)
@@ -65,3 +69,4 @@ def print_text_box(screen):
 
 print_map(screen, map)
 print_text_box(screen)
+
