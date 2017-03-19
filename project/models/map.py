@@ -11,6 +11,9 @@ class Map:
         self.index_map = 1
         self.width = 4 + self.index_map
         self.height = 4 + self.index_map
+
+
+    def build_map(self):
         self.player = Player({"x": random.randint(0, self.width - 1), "y": random.randint(0, self.height - 1)})
         self.done_temp = False
         while not self.done_temp:
@@ -88,11 +91,8 @@ class Map:
         return dic_match
 
     def check_lose(self):
-        if self.player.dic_player["x"] == self.hole.list_hole[0]["x"] and self.player.dic_player["y"] == self.hole.list_hole[0]["y"]:
-            return True
-
-    def check_win(self):
-        if self.player.dic_player["x"] == self.gem.dic_gem["x"] and self.player.dic_player["y"] == self.gem.dic_gem["y"]:
-            return True
+        for i in range(len(self.hole.list_hole)):
+            if self.player.dic_player == self.hole.list_hole[i]:
+                return True
 
 

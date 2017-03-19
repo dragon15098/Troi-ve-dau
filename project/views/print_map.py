@@ -3,6 +3,7 @@ from models.map import Map
 from models.check_around import check_around
 map = Map()
 def print_map(map, screen):
+
     bg_image = pygame.image.load("../images/hoa.png")
     p_image = pygame.image.load("../images/mario.png")
     gem_image = pygame.image.load("../images/box.png")
