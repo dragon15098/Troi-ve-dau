@@ -33,16 +33,18 @@ while map_index != 6 and not out_game:
                 map.player.move(dx, dy)
             if map.player.dic_player == map.bat.dic_bat:
                 map.player.dic_player = map.add_bat()
-        if map.check_lose():
-            done = True
-            out_game = True
-            print_lose(screen)
         if map.player.dic_player == map.gem.dic_gem:
             done = True
         print_map(map, screen, map_index - 1)
         print_square(screen,SQUARE_SIZE,map.width,map.height)
         print_text_box(screen)
         print_text(map, screen)
-        pygame.display.flip()
+        if map.check_lose():
+            done = True
+            out_game = True
+            print_lose(screen)
+        
     map_index += 1
-print_win(screen)
+if map_index == 6:
+    print_win(screen)
+pygame.display.flip()
