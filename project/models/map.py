@@ -1,9 +1,9 @@
 import random
 
-from project.models.gem import Gem
-from project.models.player import Player
-from project.models.bat import Bat
-from project.models.hole import Hole
+from models.gem import Gem
+from models.player import Player
+from models.bat import Bat
+from models.hole import Hole
 
 
 class Map:
