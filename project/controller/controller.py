@@ -43,6 +43,7 @@ while map_index != 6 and not out_game:
         print_square(screen,SQUARE_SIZE,map.width,map.height)
         print_text_box(screen)
         print_text(map, screen)
+        print_text_rule(screen)
+        print_rule(screen)
         pygame.display.flip()
     map_index += 1
-print_win(screen)
