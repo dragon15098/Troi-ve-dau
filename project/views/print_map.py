@@ -1,6 +1,6 @@
 import pygame
-from project.models.map import Map
-from project.models.check_around import check_around
+from models.map import Map
+from models.check_around import check_around
 map = Map()
 def print_map(map, screen):
     bg_image = pygame.image.load("../images/hoa.png")
@@ -39,5 +39,19 @@ def print_text(map, screen):
         font_bat = pygame.font.SysFont("monospace", 15)
         label = font_bat.render("Hole!", 1, (0, 0, 0))
         screen.blit(label, (600 , 0))
+def print_square(screen, square_size, width, height):
+    square = pygame.image.load("../images/square.png")
+    for j in range(height):
+        for i in range(width):
+            screen.blit(square,(square_size*i,square_size*j))
+
+def print_win(screen):
+    win_image = pygame.image.load("../images/win.png")
+    screen.blit(win_image, (200, 50))
+
+def print_lose(screen):
+    lose_image = pygame.image.load("../images/lose.png")
+    screen.blit(lose_image, (200, 50))
+
 
 

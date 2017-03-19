@@ -1,9 +1,9 @@
 import random
 
-from project.models.gem import Gem
-from project.models.player import Player
-from project.models.bat import Bat
-from project.models.hole import Hole
+from models.gem import Gem
+from models.player import Player
+from models.bat import Bat
+from models.hole import Hole
 
 
 class Map:
@@ -86,5 +86,13 @@ class Map:
                     near_gem = 1
         dic_match = {"bat": near_bat, "hole": near_hole, "gem": near_gem}
         return dic_match
+
+    def check_lose(self):
+        if self.player.dic_player["x"] == self.hole.list_hole[0]["x"] and self.player.dic_player["y"] == self.hole.list_hole[0]["y"]:
+            return True
+
+    def check_win(self):
+        if self.player.dic_player["x"] == self.gem.dic_gem["x"] and self.player.dic_player["y"] == self.gem.dic_gem["y"]:
+            return True
 
 

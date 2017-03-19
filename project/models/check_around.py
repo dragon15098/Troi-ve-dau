@@ -1,4 +1,4 @@
-from project.models.map import Map
+from models.map import Map
 map = Map()
 def check_around(map):
     near_bat = 0
