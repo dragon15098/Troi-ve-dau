@@ -1,6 +1,6 @@
 import pygame
-from models.map import Map
-from models.check_around import check_around
+from project.models.map import Map
+from project.models.check_around import check_around
 map = Map()
 def print_map(map, screen):
 

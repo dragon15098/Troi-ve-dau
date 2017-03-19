@@ -1,17 +1,16 @@
 import pygame
-from models.map import Map
-from views.print_map import print_map, print_text_box, print_text, print_square, print_win, print_lose
+from project.models.map import Map
+from project.views.print_map import print_map, print_text_box, print_text, print_square, print_win, print_lose
 
 pygame.init()
 map = Map()
 screen = pygame.display.set_mode([700, 400])
 SQUARE_SIZE = 40
-done = False
-while map.index_map != 6 and not done:
-    map.build_map()
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            done = True
+out_game = False
+map_index = 1
+while map_index != 6 and not out_game:
+    map.build_map(map_index)
+    done = False
     while not done:
         dx = 0
         dy = 0
@@ -34,13 +33,15 @@ while map.index_map != 6 and not done:
             if map.player.dic_player == map.bat.dic_bat:
                 map.player.dic_player = map.add_bat()
         if map.check_lose():
+            done = True
+            out_game = True
             print_lose(screen)
-
         if map.player.dic_player == map.gem.dic_gem:
-            map.index_map += 1
+            done = True
         print_map(map, screen)
         print_square(screen,SQUARE_SIZE,map.width,map.height)
         print_text_box(screen)
         print_text(map, screen)
         pygame.display.flip()
+    map_index += 1
 print_win(screen)

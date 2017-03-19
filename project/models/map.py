@@ -1,19 +1,15 @@
 import random
 
-from models.gem import Gem
-from models.player import Player
-from models.bat import Bat
-from models.hole import Hole
+from project.models.gem import Gem
+from project.models.player import Player
+from project.models.bat import Bat
+from project.models.hole import Hole
 
 
 class Map:
-    def __init__(self):
-        self.index_map = 1
-        self.width = 4 + self.index_map
-        self.height = 4 + self.index_map
-
-
-    def build_map(self):
+    def build_map(self, index_map):
+        self.width = 4 + index_map
+        self.height = 4 + index_map
         self.player = Player({"x": random.randint(0, self.width - 1), "y": random.randint(0, self.height - 1)})
         self.done_temp = False
         while not self.done_temp:
@@ -23,7 +19,7 @@ class Map:
                 self.gem = Gem(temp_gem_x, temp_gem_y)
                 self.done_temp = True
         self.hole = Hole()
-        self.add_hole(self.width, self.height, self.index_map)
+        self.add_hole(self.width, self.height, index_map)
         self.bat = Bat(self.add_bat())
         print(self.bat.dic_bat)
         print(self.player.dic_player)
