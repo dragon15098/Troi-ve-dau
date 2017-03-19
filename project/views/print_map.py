@@ -1,6 +1,5 @@
 import pygame
 from project.models.map import Map
-from project.models.check_around import check_around
 map = Map()
 def print_map(map, screen):
 
@@ -9,6 +8,7 @@ def print_map(map, screen):
     gem_image = pygame.image.load("../images/box.png")
     hole_image = pygame.image.load("../images/1.jpg")
     bat_image = pygame.image.load("../images/doi.png")
+    # rule_image = pygame.image.load("../images/rule.png")
     COLOR_WHITE = (255, 255, 255)
     SQUARE_SIZE = 40
     screen.fill(COLOR_WHITE)
@@ -21,30 +21,41 @@ def print_map(map, screen):
 
 def print_text_box(screen):
     text_box = pygame.image.load("../images/text_box.png")
-    screen.blit(text_box, (700, 0))
+    screen.blit(text_box, (400, 0))
     pygame.display.flip()
 
 def print_text(map, screen):
     dic_match = map.check_around()
     if (dic_match["gem"] == 1):
         font_bat = pygame.font.SysFont("monospace", 15)
-        label = font_bat.render("Gem!", 1, (0, 0, 0))
-        screen.blit(label, (750, 0))
+        label_gem = font_bat.render("Gem!", 1, (0, 0, 0))
+        screen.blit(label_gem, (400, 50))
 
     if (dic_match["bat"] == 1):
         font_bat = pygame.font.SysFont("monospace", 15)
-        label = font_bat.render("Bat!", 1, (0, 0, 0))
-        screen.blit(label, (800, 0))
+        label_bat = font_bat.render("Bat!", 1, (0, 0, 0))
+        screen.blit(label_bat, (400, 100))
 
     if (dic_match["hole"] == 1):
         font_bat = pygame.font.SysFont("monospace", 15)
-        label = font_bat.render("Hole!", 1, (0, 0, 0))
-        screen.blit(label, (850 , 0))
+        label_hole = font_bat.render("Hole!", 1, (0, 0, 0))
+        screen.blit(label_hole, (400, 150))
+
 def print_square(screen, square_size, width, height):
     square = pygame.image.load("../images/square.png")
     for j in range(height):
         for i in range(width):
             screen.blit(square,(square_size*i,square_size*j))
+
+def print_text_rule(screen):
+    text_box_rule = pygame.image.load("../images/rule.png")
+    screen.blit(text_box_rule, (0,200 ))
+    pygame.display.flip()
+
+def print_rule(screen):
+    myfont = pygame.font.SysFont("monospace", 15)
+    label = myfont.render("ấn phím di chuyển để bắt đầu chơi !!!", 1, (0, 0, 0))
+    screen.blit(label, (0, map.height * 40))
 
 def print_win(screen):
     win_image = pygame.image.load("../images/win.png")

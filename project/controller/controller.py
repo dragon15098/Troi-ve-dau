@@ -1,6 +1,6 @@
 import pygame
 from project.models.map import Map
-from project.views.print_map import print_map, print_text_box, print_text, print_square, print_win, print_lose
+from project.views.print_map import print_map, print_text_box, print_text, print_square, print_win, print_lose,print_text_rule,print_rule
 
 pygame.init()
 map = Map()
