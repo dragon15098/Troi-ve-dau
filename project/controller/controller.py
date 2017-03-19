@@ -41,14 +41,16 @@ while map_index != 6 and not out_game:
         if map.check_around():
             print_text(map, screen)
         print_text(map, screen)
-        print_rule(screen)
         print_text_rule(screen)
+        print_rule(screen)
         if map.check_lose():
             done = True
             out_game = True
             print_lose(screen)
             pygame.display.flip()
             time.sleep(2)
+        pygame.display.flip()
+
     map_index += 1
 if map_index == 6:
     print_win(screen)
