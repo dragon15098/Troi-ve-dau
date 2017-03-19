@@ -1,9 +1,9 @@
 import pygame
 from project.models.map import Map
 map = Map()
-def print_map(map, screen):
-
-    bg_image = pygame.image.load("../images/hoa.png")
+def print_map(map, screen, map_index):
+    list_map = ["../images/hoa.png", "../images/moc.png", "../images/tho.png","../images/tho.png", "../images/tho.png"]
+    bg_image = pygame.image.load(list_map[map_index])
     p_image = pygame.image.load("../images/mario.png")
     gem_image = pygame.image.load("../images/box.png")
     hole_image = pygame.image.load("../images/1.jpg")

@@ -28,7 +28,7 @@ class Map:
 
     def check_match(self, dic_p, temp_hole_x, temp_hole_y, list_hole, dic_gem):
         for i in range(len(list_hole)):
-            if (abs(temp_hole_x - list_hole[i]["x"]) < 2) or (abs(temp_hole_y - list_hole[i]["y"]) < 2):
+            if (abs(temp_hole_x - list_hole[i]["x"]) <= 0) or (abs(temp_hole_y - list_hole[i]["y"]) <= 0):
                 return True
         if (temp_hole_x == dic_p["x"]) and (temp_hole_y == dic_p["y"]):
             return True

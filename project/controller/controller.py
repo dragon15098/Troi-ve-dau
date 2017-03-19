@@ -17,6 +17,7 @@ while map_index != 6 and not out_game:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 done = True
+                out_game = True
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
                     dx = -1
@@ -38,7 +39,7 @@ while map_index != 6 and not out_game:
             print_lose(screen)
         if map.player.dic_player == map.gem.dic_gem:
             done = True
-        print_map(map, screen)
+        print_map(map, screen, map_index - 1)
         print_square(screen,SQUARE_SIZE,map.width,map.height)
         print_text_box(screen)
         print_text(map, screen)
