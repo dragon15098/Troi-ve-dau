@@ -1,13 +1,17 @@
 import pygame
 from models.map import Map
-from views.print_map import print_map, print_text_box, print_text, print_square, print_win, print_lose,print_rule
+from views.print_map import print_map, print_text_box, print_text, print_square, print_win, print_lose
 import time
+
 pygame.init()
+effect_sound = pygame.mixer.Sound("../sounds/abc.wav")
 map = Map()
-screen = pygame.display.set_mode([1000, 1000])
+screen = pygame.display.set_mode([1000, 800])
 SQUARE_SIZE = 40
 out_game = False
 map_index = 1
+pygame.mixer.music.load("../sounds/lactroi.wav")
+pygame.mixer.music.play(-1)
 while map_index != 6 and not out_game:
     map.build_map(map_index)
     done = False
@@ -31,6 +35,7 @@ while map_index != 6 and not out_game:
             [next_px, next_py] = map.player.next_position(dx, dy)
             if map.check_in_map(next_px, next_py) and not map.check_lose():
                 map.player.move(dx, dy)
+                effect_sound.play()
             if map.player.dic_player == map.bat.dic_bat:
                 map.player.dic_player = map.add_bat()
         if map.player.dic_player == map.gem.dic_gem:
@@ -41,14 +46,15 @@ while map_index != 6 and not out_game:
         print_text_box(screen)
         if map.check_around():
             print_text(map, screen)
-        print_rule(screen)
+
+        pygame.display.flip()
         if map.check_lose():
             done = True
             out_game = True
             print_lose(screen)
             pygame.display.flip()
             time.sleep(2)
-        pygame.display.flip()
+
 if map_index == 6:
     print_win(screen)
     pygame.display.flip()
