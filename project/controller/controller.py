@@ -4,7 +4,7 @@ from project.views.print_map import print_map, print_text_box, print_text, print
 
 pygame.init()
 map = Map()
-screen = pygame.display.set_mode([700, 400])
+screen = pygame.display.set_mode([1000, 1000])
 SQUARE_SIZE = 40
 out_game = False
 map_index = 1
