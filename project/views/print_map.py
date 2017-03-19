@@ -1,8 +1,13 @@
 import pygame
 from project.models.map import Map
+<<<<<<< HEAD
 
+=======
+from project.models.check_around import check_around
+>>>>>>> fc1861727a1bae8c88b9a78b621a0ca587e6b8f6
 map = Map()
 def print_map(map, screen):
+
     bg_image = pygame.image.load("../images/hoa.png")
     p_image = pygame.image.load("../images/mario.png")
     gem_image = pygame.image.load("../images/box.png")
@@ -21,7 +26,11 @@ def print_map(map, screen):
 
 def print_text_box(screen):
     text_box = pygame.image.load("../images/text_box.png")
+<<<<<<< HEAD
     screen.blit(text_box, (map.width * 40, 0))
+=======
+    screen.blit(text_box, (700, 0))
+>>>>>>> fc1861727a1bae8c88b9a78b621a0ca587e6b8f6
     pygame.display.flip()
 
 def print_text(map, screen):
@@ -29,18 +38,30 @@ def print_text(map, screen):
     if (dic_match["gem"] == 1):
         font_bat = pygame.font.SysFont("monospace", 15)
         label = font_bat.render("Gem!", 1, (0, 0, 0))
+<<<<<<< HEAD
         screen.blit(label, (map.width * 40, 0))
+=======
+        screen.blit(label, (750, 0))
+>>>>>>> fc1861727a1bae8c88b9a78b621a0ca587e6b8f6
 
     if (dic_match["bat"] == 1):
         font_bat = pygame.font.SysFont("monospace", 15)
         label = font_bat.render("Bat!", 1, (0, 0, 0))
+<<<<<<< HEAD
         screen.blit(label, (map.width * 40 + 50, 0))
+=======
+        screen.blit(label, (800, 0))
+>>>>>>> fc1861727a1bae8c88b9a78b621a0ca587e6b8f6
 
     if (dic_match["hole"] == 1):
         font_bat = pygame.font.SysFont("monospace", 15)
         label = font_bat.render("Hole!", 1, (0, 0, 0))
+<<<<<<< HEAD
         screen.blit(label, (map.width * 40 + 100, 0))
 
+=======
+        screen.blit(label, (850 , 0))
+>>>>>>> fc1861727a1bae8c88b9a78b621a0ca587e6b8f6
 def print_square(screen, square_size, width, height):
     square = pygame.image.load("../images/square.png")
     for j in range(height):

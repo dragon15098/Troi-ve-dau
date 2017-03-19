@@ -16,5 +16,5 @@ def check_around(map):
             if temp_dic_p == map.gem.dic_gem:
                 near_gem = 1
     print(near_gem)
-    dic_match = {"bat" : near_bat, "hole" : near_hole, "gem" : near_gem}
+    dic_match = {"bat": near_bat, "hole" : near_hole, "gem" : near_gem}
     return dic_match
