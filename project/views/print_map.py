@@ -59,7 +59,7 @@ def print_rule(screen):
 
 def print_win(screen):
     win_image = pygame.image.load("../images/win.png")
-    screen.blit(win_image, (200, 50))
+    screen.blit(win_image, (0, 0))
 
 def print_lose(screen):
     lose_image = pygame.image.load("../images/lose.png")

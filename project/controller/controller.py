@@ -1,7 +1,7 @@
 import pygame
 from project.models.map import Map
 from project.views.print_map import print_map, print_text_box, print_text, print_square, print_win, print_lose,print_text_rule,print_rule
-
+import time
 pygame.init()
 map = Map()
 screen = pygame.display.set_mode([1000, 1000])
@@ -38,13 +38,16 @@ while map_index != 6 and not out_game:
         print_map(map, screen, map_index - 1)
         print_square(screen,SQUARE_SIZE,map.width,map.height)
         print_text_box(screen)
-        print_text(map, screen)
+        if map.check_around():
+            print_text(map, screen)
         if map.check_lose():
             done = True
             out_game = True
             print_lose(screen)
-        
+            pygame.display.flip()
+            time.sleep(2)
     map_index += 1
 if map_index == 6:
     print_win(screen)
-pygame.display.flip()
+    pygame.display.flip()
+    time.sleep(2)
