@@ -22,6 +22,8 @@ def print_map(map, screen, map_index):
 def print_text_box(screen):
     text_box = pygame.image.load("../images/text_box.png")
     screen.blit(text_box, (400, 0))
+    text_box_rule = pygame.image.load("../images/rule.png")
+    screen.blit(text_box_rule, (0, 400))
     pygame.display.flip()
 
 def print_text(map, screen):
@@ -47,10 +49,6 @@ def print_square(screen, square_size, width, height):
         for i in range(width):
             screen.blit(square,(square_size*i,square_size*j))
 
-def print_text_rule(screen):
-    text_box_rule = pygame.image.load("../images/rule.png")
-    screen.blit(text_box_rule, (0,400 ))
-    pygame.display.flip()
 
 def print_rule(screen):
     myfont = pygame.font.SysFont("monospace", 15)
