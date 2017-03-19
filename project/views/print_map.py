@@ -2,7 +2,7 @@ import pygame
 from project.models.map import Map
 map = Map()
 def print_map(map, screen, map_index):
-    list_map = ["../images/hoa.png", "../images/moc.png", "../images/tho.png","../images/tho.png", "../images/tho.png"]
+    list_map = ["../images/hoa.png", "../images/moc.png", "../images/tho.png","../images/thuy.png", "../images/thuy.png"]
     bg_image = pygame.image.load(list_map[map_index])
     p_image = pygame.image.load("../images/mario.png")
     gem_image = pygame.image.load("../images/box.png")
@@ -49,13 +49,13 @@ def print_square(screen, square_size, width, height):
 
 def print_text_rule(screen):
     text_box_rule = pygame.image.load("../images/rule.png")
-    screen.blit(text_box_rule, (0,200 ))
+    screen.blit(text_box_rule, (0,400 ))
     pygame.display.flip()
 
 def print_rule(screen):
     myfont = pygame.font.SysFont("monospace", 15)
-    label = myfont.render("ấn phím di chuyển để bắt đầu chơi !!!", 1, (0, 0, 0))
-    screen.blit(label, (0, map.height * 40))
+    label = myfont.render("dùng phím di chuyển để bắt đầu chơi", 1, (255, 0, 0))
+    screen.blit(label, (0, 420))
 
 def print_win(screen):
     win_image = pygame.image.load("../images/win.png")
