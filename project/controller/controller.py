@@ -41,6 +41,10 @@ while map_index != 6 and not out_game:
         print_text(map, screen)
         print_text_rule(screen)
         print_rule(screen)
+        if map.check_lose():
+            done = True
+            out_game = True
+            print_lose(screen)
         pygame.display.flip()
         if map.check_lose():
             done =True
