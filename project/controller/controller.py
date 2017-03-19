@@ -1,6 +1,6 @@
 import pygame
-from models.map import Map
-from views.print_map import print_map, print_text_box, print_text, print_square, print_win, print_lose
+from project.models.map import Map
+from project.views.print_map import print_map, print_text_box, print_text, print_square, print_win, print_lose,print_text_rule,print_rule
 
 pygame.init()
 map = Map()
@@ -32,6 +32,8 @@ while not done:
     print_square(screen,SQUARE_SIZE,map.width,map.height)
     print_text_box(screen)
     print_text(map, screen)
+    print_text_rule(screen)
+    print_rule(screen)
     if map.check_lose():
         print_lose(screen)
     if map.check_win():
