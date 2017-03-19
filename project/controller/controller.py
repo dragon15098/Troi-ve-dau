@@ -43,8 +43,8 @@ while map_index != 6 and not out_game:
             done = True
             out_game = True
             print_lose(screen)
-        
+        pygame.display.flip()
     map_index += 1
 if map_index == 6:
     print_win(screen)
-pygame.display.flip()
+    pygame.display.flip()
